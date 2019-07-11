@@ -6,7 +6,11 @@ const postRouter = require('./posts/postRouter');
 const server = express();
 
 server.get('/', (req, res) => {
-  res.send(`<h2>Let's write some middleware!</h2>`);
+  const messageOfTheDay = process.env.MOTD;
+  res.send(`<h2>Let's write some middleware!</h2>
+    <br>
+    <h4>${messageOfTheDay}</h4>
+  `);
 });
 
 server.use(logger);
